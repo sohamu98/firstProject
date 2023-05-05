@@ -10,9 +10,25 @@ define('VIEWS_PATH', $root . 'views' . DIRECTORY_SEPARATOR);
 
 ///////////////
 
+
+
 require APP_PATH . "App.php";
+require APP_PATH . 'format.php';
 
-getTransactionFiles();
+$files = getTransactionFiles(FILES_PATH);
+
+$transactions = [];
+
+foreach($files as $file){
+
+$transactions = array_merge($transactions,getTransactions($file, 'extractTransaction'));
 
 
+}
+
+$totals = calculateTotals($transactions);
+
+// View transactions in HTML file
+
+require VIEWS_PATH . 'transaction.php';
 ?>
