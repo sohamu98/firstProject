@@ -13,6 +13,7 @@ return ($inNegative ? '-' : '').'$' . number_format(abs($amount), 2);
 
 }
 
+
 function formatDate(string $date): string {
 
     return date('M j, Y',strtotime($date));

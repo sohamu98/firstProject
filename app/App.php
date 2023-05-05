@@ -103,7 +103,7 @@ function calculateTotals(array $transactions) : array
 foreach($transactions as $transaction){
 
     $totals['netTotal'] += $transaction['amount'];
-    if($transaction['amount'] >= 0 ){
+    if($transaction['amount'] > 0 ){
 
 
         $totals['totalIncome'] += $transaction['amount'];
